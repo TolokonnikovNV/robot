@@ -1,19 +1,29 @@
 package edu.javacourse.robot;
 
-public class RobotManager {
+
+import edu.javacourse.ui.RobotFrame;
+
+import javax.swing.JFrame;
+
+public class RobotManager
+{
     public static void main(String[] args) {
-        Robot robot = new RobotTotal(0, 0);
+        // Количество сторон многоугольника
+        final int COUNT = 20;
+        // Длина стороны
+        final int SIDE = 70;
 
-        robot.forward(20);
-        robot.setCourse(90);
-        robot.forward(20);
-        robot.setCourse(90);
-        robot.forward(50);
-        // Напечатать координаты
-        robot.printCoordinates();
+        Robot robot = new Robot(200, 50);
+        // Создаем замкнутую фигуру с количеством углов COUNT
+        for (int i = 0; i < COUNT; i++) {
+            robot.forward(SIDE);
+            robot.setCourse(robot.getCourse() + 360 / COUNT);
+        }
 
-
+        // Создаем форму для отрисовки пути нашего робота
+        RobotFrame rf = new RobotFrame(robot);
+        rf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        rf.setVisible(true);
     }
-
-
 }
+
