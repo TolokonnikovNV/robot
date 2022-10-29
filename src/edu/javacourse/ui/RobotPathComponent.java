@@ -25,9 +25,6 @@ public class RobotPathComponent extends JComponent
             int x2 = (int) rl.getX2();
             int y2 = (int) rl.getY2();
 
-            //math.pow sqr
-            //math.sqrt sqrt
-
 
 
 //
